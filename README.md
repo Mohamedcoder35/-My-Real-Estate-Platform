@@ -3,6 +3,10 @@ A comprehensive real estate platform offering property listings, hotel bookings,
 
 ![Platform Preview](/Preview.png) *(Replace with actual image path)*
 
+[Take a look at the project](#git clone https://mohamedcoder35.github.io/-My-Real-Estate-Platform/
+
+) 
+
 ## Key Features 
 - Advanced property search (Villas, Apartments, Land)
 - Competitive hotel bookings
@@ -13,10 +17,4 @@ A comprehensive real estate platform offering property listings, hotel bookings,
 ## Technolgies Used
 - Frontend: HTML5, CSS3, JavaScript
 - Design: Fully responsive (mobile-friendly)
-
-## How to run the Project
-1.Clone the project:
-  ```bash
-  git clone https://mohamedcoder35.github.io/-My-Real-Estate-Platform/
-
  
