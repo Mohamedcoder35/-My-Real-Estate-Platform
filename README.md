@@ -1,1 +1,22 @@
-# -My-Real-Estate-Platform
+# Aqari - Sudan Real Estate Platform
+A comprehensive real estate platform offering property listings, hotel bookings, travl tickets, and related services in Sudan.
+
+![Platform Preview](/Preview.png) *(Replace with actual image path)*
+
+## Key Features 
+- Advanced property search (Villas, Apartments, Land)
+- Competitive hotel bookings
+- Travel ticket reservations (Buses, Trains...etc)
+- Supportive real estate services
+- Dedicated real estate blog
+
+## Technolgies Used
+- Frontend: HTML5, CSS3, JavaScript
+- Design: Fully responsive (mobile-friendly)
+
+## How to run the Project
+1.Clone the project:
+  ```bash
+  git 
+
+ 
