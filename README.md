@@ -17,6 +17,6 @@ A comprehensive real estate platform offering property listings, hotel bookings,
 ## How to run the Project
 1.Clone the project:
   ```bash
-  git 
+  git clone https://mohamedcoder35.github.io/-My-Real-Estate-Platform/
 
  
