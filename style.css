@@ -1,0 +1,1277 @@
+:root {
+  --primary-color: #2c3e50;
+  --secondary-color: #3498db;
+  --accent-color: #e74c3c;
+  --light-color: #ecf0f1;
+  --dark-color: #2c3e50;
+  --success-color: #2ecc71;
+  --warning-color: #f39c12;
+  --text-color: #333;
+  --text-light: #7f8c8d;
+  --section-padding: 4rem 5%;
+}
+
+/* التنسيقات العامة */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Tajawal", sans-serif;
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: #f9f9f9;
+  color: var(--text-color);
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+/* تحسينات الكروت */
+.property-card,
+.hotel-card,
+.travel-card,
+.service-card,
+.article-card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  will-change: transform;
+}
+
+.property-card:hover,
+.hotel-card:hover,
+.travel-card:hover,
+.service-card:hover,
+.article-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+}
+
+/* تحسينات الأزرار */
+.cta-btn,
+.details-btn,
+.book-btn,
+.contact-btn,
+.submit-btn {
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.cta-btn:hover,
+.details-btn:hover,
+.book-btn:hover,
+.contact-btn:hover,
+.submit-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 7px 14px rgba(0, 0, 0, 0.2);
+}
+
+/* تحسينات التبويبات */
+.search-tabs .tab,
+.main-property-tabs .main-tab,
+.property-filters .filter-btn,
+.service-filters .filter-btn,
+.hotel-filters .filter-btn,
+.travel-filters .filter-btn {
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.search-tabs .tab.active::after,
+.main-property-tabs .main-tab.active::after {
+  content: "";
+  position: absolute;
+  bottom: -5px;
+  right: 0;
+  width: 100%;
+  height: 3px;
+  background-color: var(--accent-color);
+  border-radius: 3px;
+}
+
+/* تحسينات العناوين */
+.section-header h2 {
+  font-weight: 700;
+  letter-spacing: -0.5px;
+}
+
+/* تحسينات الأيقونات */
+.fas,
+.fab {
+  transition: transform 0.3s ease;
+}
+
+.btn:hover .fas,
+.btn:hover .fab {
+  transform: scale(1.1);
+}
+
+/* تأثيرات حركة عند التمرير */
+[data-scroll] {
+  opacity: 0;
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+[data-scroll="fade-in"] {
+  transform: translateY(30px);
+}
+
+[data-scroll].visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* إضافة كلاسات للعرض/الإخفاء */
+.hidden {
+  display: none !important;
+}
+
+/* الشريط العلوي */
+header {
+  background-color: white;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.nav-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 5%;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.logo {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: var(--primary-color);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.logo::before {
+  content: "";
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  background-color: var(--accent-color);
+  border-radius: 50%;
+}
+
+.nav-links {
+  display: flex;
+  list-style: none;
+}
+
+.nav-links li a {
+  text-decoration: none;
+  color: var(--dark-color);
+  margin: 0 1rem;
+  font-weight: 500;
+  transition: color 0.3s;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.nav-links li a:hover {
+  color: var(--accent-color);
+}
+
+.auth-buttons .login-btn {
+  background-color: var(--primary-color);
+  color: white;
+  border: none;
+  padding: 0.6rem 1.2rem;
+  border-radius: 5px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: background-color 0.3s;
+}
+
+.auth-buttons .login-btn:hover {
+  background-color: var(--secondary-color);
+}
+
+.menu-toggle {
+  display: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  background: none;
+  border: none;
+  color: var(--primary-color);
+}
+
+/* القائمة الجانبية */
+.sidebar {
+  position: fixed;
+  top: 0;
+  right: -300px;
+  width: 300px;
+  height: 100vh;
+  background-color: white;
+  box-shadow: -2px 0 10px rgba(0, 0, 0, 0.1);
+  z-index: 1100;
+  transition: right 0.3s ease;
+  padding: 2rem;
+  overflow-y: auto;
+}
+
+.sidebar.active {
+  right: 0;
+}
+
+.sidebar ul {
+  list-style: none;
+  margin-top: 2rem;
+}
+
+.sidebar ul li {
+  margin-bottom: 1.5rem;
+}
+
+.sidebar ul li a {
+  text-decoration: none;
+  color: var(--dark-color);
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  font-size: 1.1rem;
+}
+
+.sidebar ul li a:hover {
+  color: var(--accent-color);
+}
+
+.sidebar-login {
+  background-color: var(--primary-color);
+  color: white !important;
+  padding: 0.8rem;
+  border-radius: 5px;
+  text-align: center;
+  margin-top: 2rem !important;
+  display: block !important;
+}
+
+.close-btn {
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: var(--text-light);
+}
+
+/* قسم Call to Action */
+.hero {
+  background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
+    url("https://images.unsplash.com/photo-1560518883-ce09059eeffa?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1473&q=80");
+  background-size: cover;
+  background-position: center;
+  min-height: 70vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: white;
+  padding: 0 2rem;
+}
+
+.hero-content h1 {
+  font-size: 2.8rem;
+  margin-bottom: 1.5rem;
+  line-height: 1.3;
+}
+
+.hero-content p {
+  font-size: 1.3rem;
+  margin-bottom: 2.5rem;
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.cta-btn {
+  background-color: var(--accent-color);
+  color: white;
+  border: none;
+  padding: 1rem 2.5rem;
+  font-size: 1.1rem;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.3s;
+  font-weight: 600;
+  box-shadow: 0 4px 15px rgba(231, 76, 60, 0.4);
+}
+
+.cta-btn:hover {
+  background-color: #c0392b;
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(231, 76, 60, 0.6);
+}
+
+/* قسم البحث الرئيسي */
+.main-search {
+  background-color: white;
+  padding: 2rem 5%;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+  margin-top: -3rem;
+  position: relative;
+  z-index: 100;
+  border-radius: 10px;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.search-container {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.search-tabs {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 1.5rem;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.search-tabs .tab {
+  padding: 0.8rem 2rem;
+  margin: 0 0.2rem;
+  border: none;
+  background-color: var(--light-color);
+  color: var(--text-color);
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.3s;
+  font-weight: 500;
+}
+
+.search-tabs .tab.active {
+  background-color: var(--primary-color);
+  color: white;
+}
+
+.search-form {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+}
+
+.search-form select,
+.search-form input {
+  padding: 0.8rem 1rem;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size: 1rem;
+  transition: border-color 0.3s;
+  width: 100%;
+}
+
+.search-form select:focus,
+.search-form input:focus {
+  outline: none;
+  border-color: var(--secondary-color);
+}
+
+.search-btn {
+  grid-column: 1 / -1;
+  background-color: var(--accent-color);
+  color: white;
+  border: none;
+  padding: 1rem;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1.1rem;
+  transition: all 0.3s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  font-weight: 600;
+}
+
+.search-btn:hover {
+  background-color: #c0392b;
+  transform: translateY(-2px);
+}
+
+/* أقسام العقارات */
+.property-section,
+.hotel-section,
+.travel-section,
+.brokers-section,
+.testimonials-section,
+.services-section,
+.blog-section {
+  padding: var(--section-padding);
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+.section-header h2 {
+  font-size: 2rem;
+  color: var(--primary-color);
+  position: relative;
+  padding-bottom: 0.5rem;
+}
+
+.section-header h2::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 80px;
+  height: 3px;
+  background-color: var(--accent-color);
+}
+
+.view-all {
+  color: var(--secondary-color);
+  text-decoration: none;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: color 0.3s;
+}
+
+.view-all:hover {
+  color: var(--accent-color);
+  text-decoration: underline;
+}
+
+/* فلترات العقارات الموحدة */
+.main-property-tabs {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 1.5rem;
+  flex-wrap: wrap; /* يمكن أن تلتف على الشاشات الأصغر إذا لزم الأمر */
+  gap: 0.5rem;
+  background-color: #ffffff;
+  padding: 1rem;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+}
+.main-property-tabs .main-tab {
+  padding: 0.8rem 1.8rem;
+  margin: 0 0.3rem;
+  border: none;
+  background-color: var(--light-color);
+  color: var(--text-color);
+  border-radius: 7px;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+}
+.main-property-tabs .main-tab:hover {
+  background-color: #ddd;
+  transform: translateY(-2px);
+}
+.main-property-tabs .main-tab.active {
+  background-color: var(--primary-color);
+  color: white;
+  box-shadow: 0 4px 10px rgba(44, 62, 80, 0.2);
+  transform: translateY(-2px);
+}
+.main-property-tabs .main-tab.active::after {
+  bottom: -8px;
+  height: 4px;
+}
+
+.property-filters,
+.hotel-filters,
+.travel-filters,
+.service-filters {
+  display: flex;
+  gap: 0.6rem; /* تقليل المسافة بين الأزرار أكثر */
+  margin-bottom: 2rem;
+  flex-wrap: nowrap; /* عدم التفاف الأزرار */
+  overflow-x: auto; /* تفعيل التمرير الأفقي */
+  -webkit-overflow-scrolling: touch; /* لتحسين التمرير على iOS */
+  justify-content: flex-start; /* تبدأ من اليمين (في RTL) */
+  background-color: #ffffff;
+  padding: 0.8rem 1rem; /* تقليل البادينج للحاوية */
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+  white-space: nowrap; /* مهم جداً للحفاظ على الأزرار في سطر واحد */
+  scrollbar-width: thin; /* Firefox */
+  scrollbar-color: var(--secondary-color) #f1f1f1; /* Firefox */
+}
+
+/* إخفاء شريط التمرير على WebKit (Chrome, Safari) */
+.property-filters::-webkit-scrollbar,
+.hotel-filters::-webkit-scrollbar,
+.travel-filters::-webkit-scrollbar,
+.service-filters::-webkit-scrollbar {
+  height: 8px; /* ارتفاع شريط التمرير */
+}
+
+.property-filters::-webkit-scrollbar-track,
+.hotel-filters::-webkit-scrollbar-track,
+.travel-filters::-webkit-scrollbar-track,
+.service-filters::-webkit-scrollbar-track {
+  background: #f1f1f1; /* لون خلفية شريط التمرير */
+  border-radius: 10px;
+}
+
+.property-filters::-webkit-scrollbar-thumb,
+.hotel-filters::-webkit-scrollbar-thumb,
+.travel-filters::-webkit-scrollbar-thumb,
+.service-filters::-webkit-scrollbar-thumb {
+  background: var(--secondary-color); /* لون مقبض شريط التمرير */
+  border-radius: 10px;
+}
+
+.property-filters::-webkit-scrollbar-thumb:hover,
+.hotel-filters::-webkit-scrollbar-thumb:hover,
+.travel-filters::-webkit-scrollbar-thumb:hover,
+.service-filters::-webkit-scrollbar-thumb:hover {
+  background: var(--primary-color);
+}
+
+.filter-btn {
+  padding: 0.6rem 1.2rem; /* تقليل حجم الأزرار قليلاً */
+  background-color: var(--light-color);
+  border: none;
+  border-radius: 20px; /* حواف أكثر استدارة */
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  font-weight: 500;
+  color: var(--text-color);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  flex-shrink: 0; /* منع الأزرار من الانكماش */
+  font-size: 0.9rem; /* تصغير حجم الخط */
+}
+
+.filter-btn.active {
+  background-color: var(--secondary-color);
+  color: white;
+  box-shadow: 0 4px 10px rgba(52, 152, 219, 0.3);
+  transform: translateY(-2px);
+}
+
+.filter-btn:hover:not(.active) {
+  background-color: #ddd;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* بطاقات العقارات */
+.property-grid,
+.hotel-grid,
+.travel-grid,
+.brokers-grid,
+.testimonials-grid,
+.service-grid,
+.blog-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 2rem;
+}
+
+.property-card,
+.service-card,
+.article-card {
+  background-color: white;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s;
+  position: relative;
+}
+
+.property-card:hover,
+.service-card:hover,
+.article-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+}
+
+.property-badge {
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  background-color: var(--accent-color);
+  color: white;
+  padding: 0.3rem 0.8rem;
+  border-radius: 5px;
+  font-size: 0.8rem;
+  z-index: 10;
+  font-weight: 600;
+}
+
+.property-card img,
+.hotel-card img,
+.travel-card img,
+.service-card img,
+.article-card img {
+  width: 100%;
+  height: 200px; /* ارتفاع ثابت للصور */
+  object-fit: cover; /* لضمان تغطية الصورة للمساحة دون تشوه */
+  transition: transform 0.3s;
+}
+
+.property-card:hover img,
+.hotel-card:hover img,
+.travel-card:hover img,
+.service-card:hover img,
+.article-card:hover img {
+  transform: scale(1.05);
+}
+
+.property-details,
+.hotel-details,
+.travel-details,
+.service-details,
+.article-details {
+  padding: 1.5rem;
+}
+
+.property-details h3,
+.hotel-details h3,
+.travel-details h3,
+.service-details h3,
+.article-details h3 {
+  margin-bottom: 0.5rem;
+  color: var(--primary-color);
+  font-size: 1.3rem;
+}
+
+.location,
+.company {
+  color: var(--text-light);
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.9rem;
+}
+
+.features {
+  display: flex;
+  justify-content: space-between;
+  margin: 1rem 0;
+  color: var(--text-light);
+  font-size: 0.9rem;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 1rem 0;
+  padding: 1rem 0;
+  border-top: 1px solid #eee;
+  border-bottom: 1px solid #eee;
+}
+
+.departure,
+.arrival {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 0.9rem;
+}
+
+.duration {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: var(--text-light);
+  font-size: 0.9rem;
+}
+
+.date-info {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin: 0.5rem 0;
+  color: var(--primary-color);
+  font-weight: 500;
+}
+
+.price {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--accent-color);
+  margin: 1rem 0;
+}
+
+.details-btn,
+.book-btn,
+.contact-btn {
+  width: 100%;
+  padding: 0.8rem;
+  background-color: var(--primary-color);
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.3s;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.details-btn:hover,
+.book-btn:hover,
+.contact-btn:hover {
+  background-color: var(--secondary-color);
+  transform: translateY(-2px);
+}
+
+/* بطاقات الفنادق */
+.hotel-card {
+  background-color: white;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s;
+}
+
+.hotel-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+}
+
+.rating {
+  color: var(--warning-color);
+  margin: 0.5rem 0;
+  font-size: 0.9rem;
+}
+
+/* بطاقات تذاكر السفر */
+.travel-card {
+  background-color: white;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s;
+}
+
+.travel-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+}
+
+/* قسم شهادات العملاء */
+.testimonials-section {
+  background-color: #f5f7fa;
+}
+
+.testimonial-card {
+  background-color: white;
+  border-radius: 10px;
+  padding: 2rem;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.testimonial-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+.testimonial-content {
+  margin-bottom: 1.5rem;
+  flex-grow: 1;
+}
+
+.quote {
+  font-style: italic;
+  margin-top: 1rem;
+  line-height: 1.6;
+  color: var(--text-color);
+}
+
+.testimonial-author {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-top: auto;
+}
+
+.testimonial-author img {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid var(--light-color);
+}
+
+.author-info h4 {
+  color: var(--primary-color);
+  margin-bottom: 0.3rem;
+}
+
+.author-info p {
+  color: var(--text-light);
+  font-size: 0.9rem;
+}
+
+/* قسم الدعوة للإجراء */
+.cta-section {
+  background: linear-gradient(
+    135deg,
+    var(--primary-color),
+    var(--secondary-color)
+  );
+  color: white;
+  padding: 4rem 5%;
+  text-align: center;
+  margin-top: 3rem;
+}
+
+.cta-container {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.cta-section h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.cta-section p {
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+  opacity: 0.9;
+}
+
+/* تذييل الصفحة */
+footer {
+  background-color: var(--dark-color);
+  color: white;
+  padding-top: 4rem;
+}
+
+.footer-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 5%;
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
+
+.footer-logo {
+  margin-bottom: 1.5rem;
+}
+
+.footer-logo .logo {
+  color: white;
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
+  display: inline-flex;
+}
+
+.footer-logo p {
+  opacity: 0.8;
+  margin-bottom: 1.5rem;
+  line-height: 1.6;
+}
+
+.social-links {
+  display: flex;
+  gap: 1rem;
+}
+
+.social-links a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 50%;
+  color: white;
+  transition: all 0.3s;
+  text-decoration: none;
+}
+
+.social-links a:hover {
+  background-color: var(--accent-color);
+  transform: translateY(-3px);
+}
+
+.footer-links h3 {
+  font-size: 1.2rem;
+  margin-bottom: 1.5rem;
+  position: relative;
+  padding-bottom: 0.5rem;
+}
+
+.footer-links h3::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 40px;
+  height: 2px;
+  background-color: var(--accent-color);
+}
+
+.footer-links ul {
+  list-style: none;
+}
+
+.footer-links ul li {
+  margin-bottom: 0.8rem;
+}
+
+.footer-links ul li a {
+  color: rgba(255, 255, 255, 0.8);
+  text-decoration: none;
+  transition: all 0.3s;
+  display: inline-block;
+}
+
+.footer-links ul li a:hover {
+  color: white;
+  transform: translateX(-5px);
+}
+
+.footer-contact h3 {
+  font-size: 1.2rem;
+  margin-bottom: 1.5rem;
+  position: relative;
+  padding-bottom: 0.5rem;
+}
+
+.footer-contact h3::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 40px;
+  height: 2px;
+  background-color: var(--accent-color);
+}
+
+.footer-contact ul {
+  list-style: none;
+}
+
+.footer-contact ul li {
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  opacity: 0.8;
+}
+
+/* نموذج تسجيل الدخول */
+.login-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 2000;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s;
+}
+
+.login-modal.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.modal-content {
+  background-color: white;
+  padding: 2rem;
+  border-radius: 10px;
+  width: 100%;
+  max-width: 400px;
+  position: relative;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  transform: translateY(20px);
+  transition: all 0.3s;
+}
+
+.login-modal.active .modal-content {
+  transform: translateY(0);
+}
+
+.close-modal {
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: var(--text-light);
+  transition: color 0.3s;
+}
+
+.close-modal:hover {
+  color: var(--accent-color);
+}
+
+.modal-content h2 {
+  text-align: center;
+  margin-bottom: 1.5rem;
+  color: var(--primary-color);
+  font-size: 1.5rem;
+}
+
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 0.5rem;
+  color: var(--primary-color);
+  font-weight: 500;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 0.8rem 1rem;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size: 1rem;
+  transition: all 0.3s;
+}
+
+.form-group input:focus {
+  outline: none;
+  border-color: var(--secondary-color);
+  box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.2);
+}
+
+.submit-btn {
+  width: 100%;
+  padding: 0.8rem;
+  background-color: var(--accent-color);
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1.1rem;
+  transition: all 0.3s;
+  font-weight: 600;
+}
+
+.submit-btn:hover {
+  background-color: #c0392b;
+  transform: translateY(-2px);
+}
+
+.register-link {
+  text-align: center;
+  margin-top: 1.5rem;
+  color: var(--text-light);
+}
+
+.register-link a {
+  color: var(--secondary-color);
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s;
+}
+
+.register-link a:hover {
+  color: var(--accent-color);
+  text-decoration: underline;
+}
+
+/* التجاوب مع الأجهزة المختلفة */
+@media (max-width: 1200px) {
+  .hero-content h1 {
+    font-size: 2.5rem;
+  }
+}
+
+@media (max-width: 992px) {
+  .nav-links {
+    display: none;
+  }
+
+  .menu-toggle {
+    display: block;
+  }
+
+  .hero-content h1 {
+    font-size: 2.2rem;
+  }
+
+  .property-grid,
+  .hotel-grid,
+  .travel-grid,
+  .brokers-grid,
+  .testimonials-grid,
+  .service-grid,
+  .blog-grid {
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  }
+}
+
+@media (max-width: 768px) {
+  .property-card,
+  .hotel-card,
+  .travel-card,
+  .service-card,
+  .article-card {
+    margin-bottom: 1.5rem;
+  }
+
+  .search-tabs,
+  .main-property-tabs {
+    overflow-x: auto;
+    padding-bottom: 10px;
+    justify-content: flex-start;
+    white-space: nowrap; /* مهم جداً للحفاظ على الأزرار في سطر واحد */
+  }
+
+  .search-tabs .tab,
+  .main-property-tabs .main-tab {
+    flex: 0 0 auto;
+  }
+
+  .hero {
+    min-height: 60vh;
+  }
+
+  .hero-content h1 {
+    font-size: 1.8rem;
+  }
+
+  .hero-content p {
+    font-size: 1.1rem;
+  }
+
+  .search-form {
+    grid-template-columns: 1fr;
+  }
+
+  .search-btn {
+    grid-column: 1;
+  }
+
+  .section-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+
+  .section-header h2::after {
+    right: auto;
+    left: 0;
+  }
+}
+
+@media (max-width: 576px) {
+  .nav-container {
+    padding: 1rem;
+  }
+
+  .hero {
+    min-height: 50vh;
+    padding: 0 1rem;
+  }
+
+  .hero-content h1 {
+    font-size: 1.6rem;
+  }
+
+  .hero-content p {
+    font-size: 1rem;
+  }
+
+  .search-tabs .tab,
+  .main-property-tabs .main-tab {
+    padding: 0.6rem 1rem;
+    font-size: 0.9rem;
+  }
+
+  .property-filters .filter-btn,
+  .hotel-filters .filter-btn,
+  .travel-filters .filter-btn,
+  .service-filters .filter-btn {
+    padding: 0.5rem 1rem; /* تصغير أكثر للأجهزة الصغيرة */
+    font-size: 0.85rem; /* تصغير الخط أكثر */
+    border-radius: 18px; /* حواف أكثر استدارة قليلاً */
+    gap: 0.3rem;
+  }
+
+  .property-section,
+  .hotel-section,
+  .travel-section,
+  .brokers-section,
+  .testimonials-section,
+  .services-section,
+  .blog-section {
+    padding: 2rem 1rem;
+  }
+
+  .footer-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .footer-bottom {
+    flex-direction: column;
+  }
+
+  .modal-content {
+    padding: 1.5rem;
+  }
+
+  .property-grid,
+  .hotel-grid,
+  .travel-grid,
+  .service-grid,
+  .blog-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .cta-btn,
+  .details-btn,
+  .book-btn {
+    padding: 0.8rem;
+    font-size: 1rem;
+  }
+}

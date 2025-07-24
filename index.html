@@ -1,0 +1,952 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>عقاري - المنصة العقارية الشاملة</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="nav-container">
+                <div class="logo">عقاري</div>
+                
+                <button class="menu-toggle" id="mobile-menu" aria-label="فتح القائمة">
+                    <i class="fas fa-bars"></i>
+                </button>
+                
+                <ul class="nav-links">
+                    <li><a href="#"><i class="fas fa-home"></i> الرئيسية</a></li>
+                    <li><a href="#properties"><i class="fas fa-city"></i> العقارات</a></li>
+                    <li><a href="#hotels"><i class="fas fa-hotel"></i> فنادق</a></li>
+                    <li><a href="#travel"><i class="fas fa-ticket-alt"></i> تذاكر سفر</a></li>
+                    <li><a href="#real-estate-services"><i class="fas fa-tools"></i> خدمات عقارية</a></li>
+                    <li><a href="#real-estate-blog"><i class="fas fa-newspaper"></i> المدونة</a></li>
+                    <li><a href="#brokers"><i class="fas fa-user-tie"></i> سماسرة</a></li>
+                </ul>
+                
+                <div class="auth-buttons">
+                    <button class="login-btn" id="login-btn">
+                        <i class="fas fa-user"></i> تسجيل دخول
+                    </button>
+                </div>
+            </div>
+        </nav>
+        
+        <div class="sidebar" id="sidebar">
+            <button class="close-btn" id="close-sidebar" aria-label="إغلاق القائمة">
+                <i class="fas fa-times"></i>
+            </button>
+            <ul>
+                <li><a href="#"><i class="fas fa-home"></i> الرئيسية</a></li>
+                <li><a href="#properties"><i class="fas fa-city"></i> العقارات</a></li>
+                <li><a href="#hotels"><i class="fas fa-hotel"></i> فنادق</a></li>
+                <li><a href="#travel"><i class="fas fa-ticket-alt"></i> تذاكر سفر</a></li>
+                <li><a href="#real-estate-services"><i class="fas fa-tools"></i> خدمات عقارية</a></li>
+                <li><a href="#real-estate-blog"><i class="fas fa-newspaper"></i> المدونة</a></li>
+                <li><a href="#brokers"><i class="fas fa-user-tie"></i> سماسرة</a></li>
+                <li><a href="#testimonials"><i class="fas fa-quote-left"></i> شهادات العملاء</a></li>
+                <li><a href="#login" class="sidebar-login"><i class="fas fa-sign-in-alt"></i> تسجيل دخول</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="hero-content">
+            <h1>بوابتك الشاملة لكل ما يخص العقارات في السودان</h1>
+            <p>اكتشف أفضل العقارات، احجز فنادقك، وسافر بسهولة مع منصة عقاري</p>
+            <button class="cta-btn" id="hero-cta-btn">ابدأ رحلتك الآن</button>
+        </div>
+    </section>
+
+    <section class="main-search">
+        <div class="search-container">
+            <div class="search-tabs">
+                <button class="tab active" data-tab="properties">عقارات</button>
+                <button class="tab" data-tab="travel-tourism">سفر و سياحة</button>
+                <button class="tab" data-tab="real-estate-services">خدمات عقارية</button>
+            </div>
+            
+            <div class="search-form" id="properties-search-form">
+                <select aria-label="اختر المدينة">
+                    <option value="">اختر المدينة</option>
+                    <option value="khartoum">الخرطوم</option>
+                    <option value="bahri">بحري</option>
+                    <option value="omdurman">أم درمان</option>
+                </select>
+                
+                <select aria-label="نوع العقار">
+                    <option value="">نوع العقار</option>
+                    <option value="apartment">شقة</option>
+                    <option value="villa">فيلا</option>
+                    <option value="building">عمارة كاملة</option>
+                    <option value="shop">متجر</option>
+                    <option value="house">بيت عادي</option>
+                    <option value="warehouse">مخزن</option>
+                    <option value="farm">مزرعة</option>
+                </select>
+                
+                <input type="number" placeholder="السعر الأقصى (SDG)" aria-label="السعر الأقصى">
+                
+                <button class="search-btn">
+                    <i class="fas fa-search"></i> بحث
+                </button>
+            </div>
+
+            <div class="search-form hidden" id="travel-tourism-search-form">
+                <input type="text" placeholder="الوجهة" aria-label="الوجهة">
+                <input type="date" placeholder="تاريخ المغادرة" aria-label="تاريخ المغادرة">
+                <select aria-label="نوع الرحلة">
+                    <option value="">نوع الرحلة</option>
+                    <option value="flight">طيران</option>
+                    <option value="hotel">فندق</option>
+                    <option value="package">باقة سفر</option>
+                </select>
+                <button class="search-btn">
+                    <i class="fas fa-search"></i> بحث سفر
+                </button>
+            </div>
+
+            <div class="search-form hidden" id="real-estate-services-search-form">
+                <select aria-label="نوع الخدمة">
+                    <option value="">نوع الخدمة</option>
+                    <option value="furniture-moving">نقل أثاث</option>
+                    <option value="maintenance">صيانة</option>
+                    <option value="plumbing">سباكة</option>
+                    <option value="insurance">تأمين عقاري</option>
+                    <option value="other">أخرى</option>
+                </select>
+                <input type="text" placeholder="المدينة" aria-label="مدينة الخدمة">
+                <button class="search-btn">
+                    <i class="fas fa-search"></i> بحث خدمات
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <section class="property-section" id="properties">
+        <div class="section-header">
+            <h2>العقارات</h2>
+            <a href="#" class="view-all">عرض الكل <i class="fas fa-arrow-left"></i></a>
+        </div>
+        
+        <div class="main-property-tabs">
+            <button class="main-tab active" data-tab-type="all"><i class="fas fa-border-all"></i> الكل</button>
+            <button class="main-tab" data-tab-type="for-sale"><i class="fas fa-tags"></i> للبيع</button>
+            <button class="main-tab" data-tab-type="for-rent"><i class="fas fa-hand-holding-usd"></i> للإيجار</button>
+        </div>
+
+        <div class="property-filters">
+            <button class="filter-btn active" data-filter="all"><i class="fas fa-list"></i> الكل</button>
+            <button class="filter-btn" data-filter="apartment"><i class="fas fa-building"></i> شقة</button>
+            <button class="filter-btn" data-filter="villa"><i class="fas fa-home"></i> فيلا</button>
+            <button class="filter-btn" data-filter="house"><i class="fas fa-house-user"></i> منزل</button>
+            <button class="filter-btn" data-filter="shop"><i class="fas fa-store"></i> متجر</button>
+            <button class="filter-btn" data-filter="building"><i class="fas fa-city"></i> مبنى</button>
+            <button class="filter-btn" data-filter="warehouse"><i class="fas fa-warehouse"></i> مخزن</button>
+            <button class="filter-btn" data-filter="farm"><i class="fas fa-tractor"></i> مزرعة</button>
+        </div>
+        
+        <div class="property-grid">
+            <div class="property-card" data-type="villa" data-status="for-sale" data-scroll="fade-in">
+                <div class="property-badge">عرض خاص</div>
+                <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="فيلا فاخرة بالخرطوم">
+                <div class="property-details">
+                    <h3>فيلا فاخرة بالخرطوم</h3>
+                    <p class="location"><i class="fas fa-map-marker-alt"></i> الخرطوم، حي الرياض</p>
+                    <div class="features">
+                        <span><i class="fas fa-bed"></i> 4 غرف</span>
+                        <span><i class="fas fa-bath"></i> 3 حمامات</span>
+                        <span><i class="fas fa-vector-square"></i> 250 م²</span>
+                    </div>
+                    <div class="price">1,250,000 SDG</div>
+                    <button class="details-btn"><i class="fas fa-eye"></i> عرض التفاصيل</button>
+                </div>
+            </div>
+            
+            <div class="property-card" data-type="apartment" data-status="for-sale" data-scroll="fade-in">
+                <img src="https://images.unsplash.com/photo-1493809842364-78817add7ffb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="شقة للبيع بأم درمان">
+                <div class="property-details">
+                    <h3>شقة للبيع بأم درمان</h3>
+                    <p class="location"><i class="fas fa-map-marker-alt"></i> أم درمان، شارع النيل</p>
+                    <div class="features">
+                        <span><i class="fas fa-bed"></i> 3 غرف</span>
+                        <span><i class="fas fa-bath"></i> 2 حمامات</span>
+                        <span><i class="fas fa-vector-square"></i> 150 م²</span>
+                    </div>
+                    <div class="price">850,000 SDG</div>
+                    <button class="details-btn"><i class="fas fa-eye"></i> عرض التفاصيل</button>
+                </div>
+            </div>
+
+            <div class="property-card" data-type="building" data-status="for-sale" data-scroll="fade-in">
+                <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="عمارة للبيع بالخرطوم">
+                <div class="property-details">
+                    <h3>عمارة للبيع بالخرطوم</h3>
+                    <p class="location"><i class="fas fa-map-marker-alt"></i> الخرطوم، شارع القصر</p>
+                    <div class="features">
+                        <span><i class="fas fa-bed"></i> 12 غرفة</span>
+                        <span><i class="fas fa-bath"></i> 6 حمامات</span>
+                        <span><i class="fas fa-vector-square"></i> 800 م²</span>
+                    </div>
+                    <div class="price">5,500,000 SDG</div>
+                    <button class="details-btn"><i class="fas fa-eye"></i> عرض التفاصيل</button>
+                </div>
+            </div>
+            
+            <div class="property-card" data-type="apartment" data-status="for-sale" data-scroll="fade-in">
+                <div class="property-badge">عرض جديد</div>
+                <img src="https://images.unsplash.com/photo-1580587771525-78b9dba3b914?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="شقة حديثة بالخرطوم">
+                <div class="property-details">
+                    <h3>شقة حديثة بالخرطوم</h3>
+                    <p class="location"><i class="fas fa-map-marker-alt"></i> الخرطوم، حي التعاون</p>
+                    <div class="features">
+                        <span><i class="fas fa-bed"></i> 3 غرف</span>
+                        <span><i class="fas fa-bath"></i> 2 حمامات</span>
+                        <span><i class="fas fa-vector-square"></i> 180 م²</span>
+                    </div>
+                    <div class="price">1,100,000 SDG</div>
+                    <button class="details-btn"><i class="fas fa-eye"></i> عرض التفاصيل</button>
+                </div>
+            </div>
+            
+            <div class="property-card" data-type="shop" data-status="for-sale" data-scroll="fade-in">
+                <img src="https://images.unsplash.com/photo-1605152276897-4f618f831968?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="محل تجاري ببحري">
+                <div class="property-details">
+                    <h3>محل تجاري ببحري</h3>
+                    <p class="location"><i class="fas fa-map-marker-alt"></i> بحري، السوق المركزي</p>
+                    <div class="features">
+                        <span><i class="fas fa-store"></i> مساحة تجارية</span>
+                        <span><i class="fas fa-vector-square"></i> 120 م²</span>
+                    </div>
+                    <div class="price">2,300,000 SDG</div>
+                    <button class="details-btn"><i class="fas fa-eye"></i> عرض التفاصيل</button>
+                </div>
+            </div>
+            
+            <div class="property-card" data-type="villa" data-status="for-sale" data-scroll="fade-in">
+                <img src="https://images.unsplash.com/photo-1605276374104-dee2a0ed3cd6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="فيلا بحديقة خاصة">
+                <div class="property-details">
+                    <h3>فيلا بحديقة خاصة</h3>
+                    <p class="location"><i class="fas fa-map-marker-alt"></i> الخرطوم، حي النزهة</p>
+                    <div class="features">
+                        <span><i class="fas fa-bed"></i> 5 غرف</span>
+                        <span><i class="fas fa-bath"></i> 4 حمامات</span>
+                        <span><i class="fas fa-vector-square"></i> 350 م²</span>
+                    </div>
+                    <div class="price">3,200,000 SDG</div>
+                    <button class="details-btn"><i class="fas fa-eye"></i> عرض التفاصيل</button>
+                </div>
+            </div>
+
+            <div class="property-card" data-type="apartment" data-status="for-rent" data-scroll="fade-in">
+                <img src="https://images.unsplash.com/photo-1493809842364-78817add7ffb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="شقة للإيجار بالخرطوم">
+                <div class="property-details">
+                    <h3>شقة للإيجار بالخرطوم</h3>
+                    <p class="location"><i class="fas fa-map-marker-alt"></i> الخرطوم، العمارات</p>
+                    <div class="features">
+                        <span><i class="fas fa-bed"></i> 2 غرف</span>
+                        <span><i class="fas fa-bath"></i> 1 حمام</span>
+                        <span><i class="fas fa-vector-square"></i> 100 م²</span>
+                    </div>
+                    <div class="price">45,000 SDG/شهرياً</div>
+                    <button class="details-btn"><i class="fas fa-eye"></i> عرض التفاصيل</button>
+                </div>
+            </div>
+
+            <div class="property-card" data-type="villa" data-status="for-rent" data-scroll="fade-in">
+                <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="فيلا للإيجار ببحري">
+                <div class="property-details">
+                    <h3>فيلا للإيجار ببحري</h3>
+                    <p class="location"><i class="fas fa-map-marker-alt"></i> بحري، حي المقرن</p>
+                    <div class="features">
+                        <span><i class="fas fa-bed"></i> 5 غرف</span>
+                        <span><i class="fas fa-bath"></i> 3 حمامات</span>
+                        <span><i class="fas fa-vector-square"></i> 300 م²</span>
+                    </div>
+                    <div class="price">120,000 SDG/شهرياً</div>
+                    <button class="details-btn"><i class="fas fa-eye"></i> عرض التفاصيل</button>
+                </div>
+            </div>
+
+            <div class="property-card" data-type="shop" data-status="for-rent" data-scroll="fade-in">
+                <img src="https://images.unsplash.com/photo-1605152276897-4f618f831968?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="متجر للإيجار بأم درمان">
+                <div class="property-details">
+                    <h3>متجر للإيجار بأم درمان</h3>
+                    <p class="location"><i class="fas fa-map-marker-alt"></i> أم درمان، السوق الكبير</p>
+                    <div class="features">
+                        <span><i class="fas fa-store"></i> مساحة تجارية</span>
+                        <span><i class="fas fa-vector-square"></i> 80 م²</span>
+                    </div>
+                    <div class="price">65,000 SDG/شهرياً</div>
+                    <button class="details-btn"><i class="fas fa-eye"></i> عرض التفاصيل</button>
+                </div>
+            </div>
+            
+            <div class="property-card" data-type="apartment" data-status="for-rent" data-scroll="fade-in">
+                <div class="property-badge">جديد</div>
+                <img src="https://images.unsplash.com/photo-1580587771525-78b9dba3b914?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="شقة دوبلكس للإيجار">
+                <div class="property-details">
+                    <h3>شقة دوبلكس للإيجار</h3>
+                    <p class="location"><i class="fas fa-map-marker-alt"></i> الخرطوم، حي النيل</p>
+                    <div class="features">
+                        <span><i class="fas fa-bed"></i> 4 غرف</span>
+                        <span><i class="fas fa-bath"></i> 3 حمامات</span>
+                        <span><i class="fas fa-vector-square"></i> 220 م²</span>
+                    </div>
+                    <div class="price">85,000 SDG/شهرياً</div>
+                    <button class="details-btn"><i class="fas fa-eye"></i> عرض التفاصيل</button>
+                </div>
+            </div>
+            
+            <div class="property-card" data-type="house" data-status="for-rent" data-scroll="fade-in">
+                <img src="https://images.unsplash.com/photo-1605276374104-dee2a0ed3cd6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="بيت شعبي للإيجار">
+                <div class="property-details">
+                    <h3>بيت شعبي للإيجار</h3>
+                    <p class="location"><i class="fas fa-map-marker-alt"></i> أم درمان، حي الثورة</p>
+                    <div class="features">
+                        <span><i class="fas fa-bed"></i> 3 غرف</span>
+                        <span><i class="fas fa-bath"></i> 1 حمام</span>
+                        <span><i class="fas fa-vector-square"></i> 150 م²</span>
+                    </div>
+                    <div class="price">35,000 SDG/شهرياً</div>
+                    <button class="details-btn"><i class="fas fa-eye"></i> عرض التفاصيل</button>
+                </div>
+            </div>
+
+            <div class="property-card" data-type="warehouse" data-status="for-sale" data-scroll="fade-in">
+                <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="مخزن تجاري">
+                <div class="property-details">
+                    <h3>مخزن كبير بالصناعية</h3>
+                    <p class="location"><i class="fas fa-map-marker-alt"></i> الخرطوم، المنطقة الصناعية</p>
+                    <div class="features">
+                        <span><i class="fas fa-warehouse"></i> مساحة تخزين</span>
+                        <span><i class="fas fa-vector-square"></i> 500 م²</span>
+                    </div>
+                    <div class="price">4,000,000 SDG</div>
+                    <button class="details-btn"><i class="fas fa-eye"></i> عرض التفاصيل</button>
+                </div>
+            </div>
+
+            <div class="property-card" data-type="farm" data-status="for-sale" data-scroll="fade-in">
+                <img src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="مزرعة في ريف الخرطوم">
+                <div class="property-details">
+                    <h3>مزرعة للبيع (منتجة)</h3>
+                    <p class="location"><i class="fas fa-map-marker-alt"></i> ريف الخرطوم، طريق مدني</p>
+                    <div class="features">
+                        <span><i class="fas fa-tractor"></i> أرض زراعية</span>
+                        <span><i class="fas fa-vector-square"></i> 10 فدان</span>
+                    </div>
+                    <div class="price">7,000,000 SDG</div>
+                    <button class="details-btn"><i class="fas fa-eye"></i> عرض التفاصيل</button>
+                </div>
+            </div>
+            
+        </div>
+    </section>
+
+    <section class="hotel-section" id="hotels">
+        <div class="section-header">
+            <h2>غرف فندقية ومنتجعات</h2>
+            <a href="#" class="view-all">عرض الكل <i class="fas fa-arrow-left"></i></a>
+        </div>
+        
+        <div class="hotel-filters">
+            <button class="filter-btn active" data-filter="all"><i class="fas fa-list"></i> الكل</button>
+            <button class="filter-btn" data-filter="5"><i class="fas fa-star"></i> 5 نجوم</button>
+            <button class="filter-btn" data-filter="4"><i class="fas fa-star"></i> 4 نجوم</button>
+            <button class="filter-btn" data-filter="3"><i class="fas fa-star"></i> 3 نجوم</button>
+        </div>
+        
+        <div class="hotel-grid">
+            <div class="hotel-card" data-stars="5" data-scroll="fade-in">
+                <img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="فندق كورال الخرطوم">
+                <div class="hotel-details">
+                    <h3>فندق كورال الخرطوم</h3>
+                    <div class="rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p class="location"><i class="fas fa-map-marker-alt"></i> الخرطوم، شارع القصر</p>
+                    <div class="price">150,000 SDG/ليلة</div>
+                    <button class="book-btn"><i class="fas fa-calendar-check"></i> حجز الآن</button>
+                </div>
+            </div>
+
+            <div class="hotel-card" data-stars="4" data-scroll="fade-in">
+                <img src="https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="فندق السلام أم درمان">
+                <div class="hotel-details">
+                    <h3>فندق السلام أم درمان</h3>
+                    <div class="rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
+                    </div>
+                    <p class="location"><i class="fas fa-map-marker-alt"></i> أم درمان، شارع النيل</p>
+                    <div class="price">95,000 SDG/ليلة</div>
+                    <button class="book-btn"><i class="fas fa-calendar-check"></i> حجز الآن</button>
+                </div>
+            </div>
+            
+            <div class="hotel-card" data-stars="4" data-scroll="fade-in">
+                <img src="https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="فندق النيل الأزرق">
+                <div class="hotel-details">
+                    <h3>فندق النيل الأزرق</h3>
+                    <div class="rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="far fa-star"></i>
+                    </div>
+                    <p class="location"><i class="fas fa-map-marker-alt"></i> الخرطوم، شارع القصر</p>
+                    <div class="price">110,000 SDG/ليلة</div>
+                    <button class="book-btn"><i class="fas fa-calendar-check"></i> حجز الآن</button>
+                </div>
+            </div>
+            
+            <div class="hotel-card" data-stars="3" data-scroll="fade-in">
+                <img src="https://images.unsplash.com/photo-1571896349842-33c89424de2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1480&q=80" alt="فندق الخرطوم بلازا">
+                <div class="hotel-details">
+                    <h3>فندق الخرطوم بلازا</h3>
+                    <div class="rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="far fa-star"></i>
+                        <i class="far fa-star"></i>
+                    </div>
+                    <p class="location"><i class="fas fa-map-marker-alt"></i> الخرطوم، شارع الجامعة</p>
+                    <div class="price">75,000 SDG/ليلة</div>
+                    <button class="book-btn"><i class="fas fa-calendar-check"></i> حجز الآن</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="travel-section" id="travel">
+        <div class="section-header">
+            <h2>حجز تذاكر السفر</h2>
+            <a href="#" class="view-all">عرض الكل <i class="fas fa-arrow-left"></i></a>
+        </div>
+        
+        <div class="travel-filters">
+            <button class="filter-btn active" data-filter="all"><i class="fas fa-list"></i> الكل</button>
+            <button class="filter-btn" data-filter="bus"><i class="fas fa-bus"></i> باصات</button>
+            <button class="filter-btn" data-filter="train"><i class="fas fa-train"></i> قطارات</button>
+            <button class="filter-btn" data-filter="plane"><i class="fas fa-plane"></i> طائرات</button>
+            <button class="filter-btn" data-filter="ship"><i class="fas fa-ship"></i> سفن</button>
+        </div>
+        
+        <div class="travel-grid">
+            <div class="travel-card" data-type="bus" data-scroll="fade-in">
+                <img src="https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="باص الخرطوم - بورتسودان">
+                <div class="travel-details">
+                    <h3>باص الخرطوم - بورتسودان</h3>
+                    <p class="company"><i class="fas fa-bus"></i> شركة النقل الجماعي</p>
+                    <div class="info">
+                        <div class="departure">
+                            <span>الخرطوم</span>
+                            <span>08:00 ص</span>
+                        </div>
+                        <div class="duration">
+                            <i class="fas fa-arrow-right"></i>
+                            <span>12 ساعة</span>
+                        </div>
+                        <div class="arrival">
+                            <span>بورتسودان</span>
+                            <span>08:00 م</span>
+                        </div>
+                    </div>
+                    <div class="date-info">
+                        <i class="fas fa-calendar-alt"></i>
+                        <span>10 يوليو 2023</span>
+                    </div>
+                    <div class="price">25,000 SDG</div>
+                    <button class="book-btn"><i class="fas fa-ticket-alt"></i> حجز الآن</button>
+                </div>
+            </div>
+
+            <div class="travel-card" data-type="plane" data-scroll="fade-in">
+                <img src="https://images.unsplash.com/photo-1556388158-158ea5ccacbd?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="طائرة الخرطوم - دبي">
+                <div class="travel-details">
+                    <h3>طائرة الخرطوم - دبي</h3>
+                    <p class="company"><i class="fas fa-plane"></i> طيران السودان</p>
+                    <div class="info">
+                        <div class="departure">
+                            <span>الخرطوم</span>
+                            <span>02:00 م</span>
+                        </div>
+                        <div class="duration">
+                            <i class="fas fa-arrow-right"></i>
+                            <span>3 ساعات</span>
+                        </div>
+                        <div class="arrival">
+                            <span>دبي</span>
+                            <span>05:00 م</span>
+                        </div>
+                    </div>
+                    <div class="date-info">
+                        <i class="fas fa-calendar-alt"></i>
+                        <span>15 يوليو 2023</span>
+                    </div>
+                    <div class="price">350,000 SDG</div>
+                    <button class="book-btn"><i class="fas fa-ticket-alt"></i> حجز الآن</button>
+                </div>
+            </div>
+
+            <div class="travel-card" data-type="train" data-scroll="fade-in">
+                <img src="https://images.unsplash.com/photo-1525103504173-8dc1582c7430?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="قطار الخرطوم - الأبيض">
+                <div class="travel-details">
+                    <h3>قطار الخرطوم - الأبيض</h3>
+                    <p class="company"><i class="fas fa-train"></i> سكك حديد السودان</p>
+                    <div class="info">
+                        <div class="departure">
+                            <span>الخرطوم</span>
+                            <span>07:00 ص</span>
+                        </div>
+                        <div class="duration">
+                            <i class="fas fa-arrow-right"></i>
+                            <span>8 ساعات</span>
+                        </div>
+                        <div class="arrival">
+                            <span>الأبيض</span>
+                            <span>03:00 م</span>
+                        </div>
+                    </div>
+                    <div class="date-info">
+                        <i class="fas fa-calendar-alt"></i>
+                        <span>20 يوليو 2023</span>
+                    </div>
+                    <div class="price">18,000 SDG</div>
+                    <button class="book-btn"><i class="fas fa-ticket-alt"></i> حجز الآن</button>
+                </div>
+            </div>
+            
+            <div class="travel-card" data-type="ship" data-scroll="fade-in">
+                <img src="https://images.unsplash.com/photo-1518544866330-95a19807e88a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="سفينة الخرطوم - وادي حلفا">
+                <div class="travel-details">
+                    <h3>سفينة الخرطوم - وادي حلفا</h3>
+                    <p class="company"><i class="fas fa-ship"></i> النيل للنقل النهري</p>
+                    <div class="info">
+                        <div class="departure">
+                            <span>الخرطوم</span>
+                            <span>06:00 ص</span>
+                        </div>
+                        <div class="duration">
+                            <i class="fas fa-arrow-right"></i>
+                            <span>36 ساعة</span>
+                        </div>
+                        <div class="arrival">
+                            <span>وادي حلفا</span>
+                            <span>06:00 م</span>
+                        </div>
+                    </div>
+                    <div class="date-info">
+                        <i class="fas fa-calendar-alt"></i>
+                        <span>25 يوليو 2023</span>
+                    </div>
+                    <div class="price">40,000 SDG</div>
+                    <button class="book-btn"><i class="fas fa-ticket-alt"></i> حجز الآن</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="services-section" id="real-estate-services">
+        <div class="section-header">
+            <h2>خدمات عقارية</h2>
+            <a href="#" class="view-all">عرض الكل <i class="fas fa-arrow-left"></i></a>
+        </div>
+        
+        <div class="service-filters">
+            <button class="filter-btn active" data-filter="all"><i class="fas fa-list"></i> الكل</button>
+            <button class="filter-btn" data-filter="furniture-moving"><i class="fas fa-truck-moving"></i> نقل أثاث</button>
+            <button class="filter-btn" data-filter="maintenance"><i class="fas fa-tools"></i> صيانة</button>
+            <button class="filter-btn" data-filter="plumbing"><i class="fas fa-faucet"></i> سباكة</button>
+            <button class="filter-btn" data-filter="insurance"><i class="fas fa-shield-alt"></i> تأمين عقاري</button>
+            <button class="filter-btn" data-filter="other"><i class="fas fa-ellipsis-h"></i> باقي الخدمات</button>
+        </div>
+        
+        <div class="service-grid">
+            <div class="service-card" data-type="furniture-moving" data-scroll="fade-in">
+                <img src="https://images.unsplash.com/photo-1541888946425-d81bb19240f5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="خدمة نقل أثاث">
+                <div class="service-details">
+                    <h3>خدمة نقل أثاث احترافية</h3>
+                    <p class="location"><i class="fas fa-map-marker-alt"></i> الخرطوم وجميع الولايات</p>
+                    <div class="features">
+                        <span><i class="fas fa-truck"></i> سيارات مجهزة</span>
+                        <span><i class="fas fa-boxes"></i> تغليف آمن</span>
+                    </div>
+                    <div class="price">تبدأ من 50,000 SDG</div>
+                    <button class="contact-btn"><i class="fas fa-phone-alt"></i> اطلب الخدمة</button>
+                </div>
+            </div>
+
+            <div class="service-card" data-type="maintenance" data-scroll="fade-in">
+                <img src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="خدمة صيانة منزلية">
+                <div class="service-details">
+                    <h3>صيانة منزلية شاملة</h3>
+                    <p class="location"><i class="fas fa-map-marker-alt"></i> الخرطوم</p>
+                    <div class="features">
+                        <span><i class="fas fa-hammer"></i> كهرباء وسباكة</span>
+                        <span><i class="fas fa-paint-roller"></i> دهانات وديكور</span>
+                    </div>
+                    <div class="price">حسب الاتفاق</div>
+                    <button class="contact-btn"><i class="fas fa-phone-alt"></i> اطلب الخدمة</button>
+                </div>
+            </div>
+
+            <div class="service-card" data-type="plumbing" data-scroll="fade-in">
+                <img src="https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="خدمة سباكة">
+                <div class="service-details">
+                    <h3>خدمات سباكة طارئة</h3>
+                    <p class="location"><i class="fas fa-map-marker-alt"></i> أم درمان</p>
+                    <div class="features">
+                        <span><i class="fas fa-faucet"></i> تسربات</span>
+                        <span><i class="fas fa-wrench"></i> تركيبات</span>
+                    </div>
+                    <div class="price">تبدأ من 15,000 SDG</div>
+                    <button class="contact-btn"><i class="fas fa-phone-alt"></i> اطلب الخدمة</button>
+                </div>
+            </div>
+
+             <div class="service-card" data-type="insurance" data-scroll="fade-in">
+                <img src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="تأمين عقاري">
+                <div class="service-details">
+                    <h3>تأمين عقاري شامل</h3>
+                    <p class="location"><i class="fas fa-shield-alt"></i> تغطية واسعة</p>
+                    <div class="features">
+                        <span><i class="fas fa-fire"></i> ضد الحريق</span>
+                        <span><i class="fas fa-frown"></i> ضد الكوارث</span>
+                    </div>
+                    <div class="price">استشرنا</div>
+                    <button class="contact-btn"><i class="fas fa-phone-alt"></i> استشر خبير</button>
+                </div>
+            </div>
+
+            <div class="service-card" data-type="other" data-scroll="fade-in">
+                <img src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="خدمة تقييم عقاري">
+                <div class="service-details">
+                    <h3>تقييم عقاري احترافي</h3>
+                    <p class="location"><i class="fas fa-balance-scale"></i> تقييم دقيق</p>
+                    <div class="features">
+                        <span><i class="fas fa-chart-line"></i> دراسات سوق</span>
+                        <span><i class="fas fa-file-invoice"></i> تقارير معتمدة</span>
+                    </div>
+                    <div class="price">تبدأ من 20,000 SDG</div>
+                    <button class="contact-btn"><i class="fas fa-phone-alt"></i> اطلب الخدمة</button>
+                </div>
+            </div>
+
+            <div class="service-card" data-type="other" data-scroll="fade-in">
+                <img src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="خدمات استشارية">
+                <div class="service-details">
+                    <h3>استشارات عقارية</h3>
+                    <p class="location"><i class="fas fa-comments"></i> خبراء متمرسون</p>
+                    <div class="features">
+                        <span><i class="fas fa-lightbulb"></i> نصائح استثمارية</span>
+                        <span><i class="fas fa-gavel"></i> استشارات قانونية</span>
+                    </div>
+                    <div class="price">استشرنا</div>
+                    <button class="contact-btn"><i class="fas fa-phone-alt"></i> احجز استشارة</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="blog-section" id="real-estate-blog">
+        <div class="section-header">
+            <h2>المدونة العقارية</h2>
+            <a href="#" class="view-all">عرض الكل <i class="fas fa-arrow-left"></i></a>
+        </div>
+        
+        <div class="blog-grid">
+            <div class="article-card" data-scroll="fade-in">
+                <img src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1473&q=80" alt="نصائح لشراء عقار">
+                <div class="article-details">
+                    <h3>10 نصائح أساسية قبل شراء عقارك الأول</h3>
+                    <p class="location"><i class="fas fa-calendar-alt"></i> 10 يوليو 2023 | <i class="fas fa-tag"></i> شراء</p>
+                    <p>دليل شامل لمساعدتك في اتخاذ قرار مستنير عند شراء عقارك الأول وتجنب الأخطاء الشائعة.</p>
+                    <button class="details-btn"><i class="fas fa-book-open"></i> اقرأ المزيد</button>
+                </div>
+            </div>
+
+            <div class="article-card" data-scroll="fade-in">
+                <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="صيانة منزلية">
+                <div class="article-details">
+                    <h3>أهمية الصيانة الدورية لمنزلك: نصائح وحيل</h3>
+                    <p class="location"><i class="fas fa-calendar-alt"></i> 5 يوليو 2023 | <i class="fas fa-tag"></i> صيانة</p>
+                    <p>تعرف على كيف يمكن للصيانة المنتظمة أن تطيل عمر منزلك وتوفر عليك التكاليف على المدى الطويل.</p>
+                    <button class="details-btn"><i class="fas fa-book-open"></i> اقرأ المزيد</button>
+                </div>
+            </div>
+
+            <div class="article-card" data-scroll="fade-in">
+                <img src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1473&q=80" alt="الاستثمار العقاري">
+                <div class="article-details">
+                    <h3>مستقبل الاستثمار العقاري في السودان 2024</h3>
+                    <p class="location"><i class="fas fa-calendar-alt"></i> 1 يوليو 2023 | <i class="fas fa-tag"></i> استثمار</p>
+                    <p>تحليل لأبرز التوقعات والفرص الاستثمارية في السوق العقاري السوداني للعام القادم.</p>
+                    <button class="details-btn"><i class="fas fa-book-open"></i> اقرأ المزيد</button>
+                </div>
+            </div>
+
+            <div class="article-card" data-scroll="fade-in">
+                <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="تصميم داخلي">
+                <div class="article-details">
+                    <h3>كيف تزيد قيمة منزلك بلمسات بسيطة من التصميم الداخلي</h3>
+                    <p class="location"><i class="fas fa-calendar-alt"></i> 25 يونيو 2023 | <i class="fas fa-tag"></i> تصميم</p>
+                    <p>اكتشف أفكارًا إبداعية وعملية لتحسين جمال ووظائف منزلك وزيادة قيمته السوقية.</p>
+                    <button class="details-btn"><i class="fas fa-book-open"></i> اقرأ المزيد</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <section class="brokers-section" id="brokers">
+        <div class="section-header">
+            <h2>سماسرة موثوقون</h2>
+            <a href="#" class="view-all">عرض الكل <i class="fas fa-arrow-left"></i></a>
+        </div>
+        
+        <div class="brokers-grid">
+            <div class="property-card" data-scroll="fade-in">
+                <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1374&q=80" alt="الوسيط العقاري أحمد محمد">
+                <div class="property-details">
+                    <h3>أحمد محمد</h3>
+                    <p class="location"><i class="fas fa-user-tie"></i> متخصص في فلل الخرطوم</p>
+                    <div class="rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
+                        <span>(42 تقييم)</span>
+                    </div>
+                    <button class="details-btn"><i class="fas fa-phone-alt"></i> تواصل مع الوسيط</button>
+                </div>
+            </div>
+
+            <div class="property-card" data-scroll="fade-in">
+                <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="الوسيط العقاري سارة عبد الله">
+                <div class="property-details">
+                    <h3>سارة عبد الله</h3>
+                    <p class="location"><i class="fas fa-user-tie"></i> متخصصة في شقق أم درمان</p>
+                    <div class="rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <span>(36 تقييم)</span>
+                    </div>
+                    <button class="details-btn"><i class="fas fa-phone-alt"></i> تواصل مع الوسيط</button>
+                </div>
+            </div>
+            
+            <div class="property-card" data-scroll="fade-in">
+                <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1376&q=80" alt="الوسيط العقاري عمر خالد">
+                <div class="property-details">
+                    <h3>عمر خالد</h3>
+                    <p class="location"><i class="fas fa-user-tie"></i> متخصص في العقارات التجارية</p>
+                    <div class="rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="far fa-star"></i>
+                        <span>(28 تقييم)</span>
+                    </div>
+                    <button class="details-btn"><i class="fas fa-phone-alt"></i> تواصل مع الوسيط</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="testimonials-section" id="testimonials">
+        <div class="section-header">
+            <h2>ماذا يقول عملاؤنا</h2>
+        </div>
+        
+        <div class="testimonials-grid">
+            <div class="testimonial-card" data-scroll="fade-in">
+                <div class="testimonial-content">
+                    <div class="rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p class="quote">"منصة عقاري غيرت تجربتي في البحث عن منزل، وجدت الفيلا المثالية في وقت قياسي!"</p>
+                </div>
+                <div class="testimonial-author">
+                    <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1374&q=80" alt="صورة العميل محمد أحمد">
+                    <div class="author-info">
+                        <h4>محمد أحمد</h4>
+                        <p>مشتري عقار</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="testimonial-card" data-scroll="fade-in">
+                <div class="testimonial-content">
+                    <div class="rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p class="quote">"سهولة الحجز وسرعة الإنجاز، أفضل منصة لحجز الفنادق وتذاكر السفر في السودان"</p>
+                </div>
+                <div class="testimonial-author">
+                    <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="صورة العميلة أميرة حسن">
+                    <div class="author-info">
+                        <h4>أميرة حسن</h4>
+                        <p>مسافرة</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="testimonial-card" data-scroll="fade-in">
+                <div class="testimonial-content">
+                    <div class="rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
+                    </div>
+                    <p class="quote">"كمشتري أول، وجدت في منصة عقاري كل ما أحتاجه من معلومات ودعم لاتخاذ القرار الصحيح"</p>
+                </div>
+                <div class="testimonial-author">
+                    <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1376&q=80" alt="صورة العميلة نورا عمر">
+                    <div class="author-info">
+                        <h4>نورا عمر</h4>
+                        <p>مستأجرة</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="testimonial-card" data-scroll="fade-in">
+                <div class="testimonial-content">
+                    <div class="rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p class="quote">"الوسيط الذي تواصلت معه من خلال المنصة كان محترفاً وساعدني في إيجاد ما أبحث عنه بسرعة"</p>
+                </div>
+                <div class="testimonial-author">
+                    <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1374&q=80" alt="صورة العميل علي محمود">
+                    <div class="author-info">
+                        <h4>علي محمود</h4>
+                        <p>مستثمر عقاري</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta-section">
+        <div class="cta-container">
+            <h2>جاهز لبدء رحلتك العقارية؟</h2>
+            <p>انضم إلى آلاف العملاء الذين وجدوا ما يبحثون عنه بسهولة ويسر</p>
+            <button class="cta-btn" id="bottom-cta-btn">سجل حسابك الآن</button>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-container">
+            <div class="footer-grid">
+                <div class="footer-logo">
+                    <div class="logo">عقاري</div>
+                    <p>المنصة العقارية الشاملة في السودان</p>
+                    <div class="social-links">
+                        <a href="#" aria-label="فيسبوك"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" aria-label="تويتر"><i class="fab fa-twitter"></i></a>
+                        <a href="#" aria-label="إنستغرام"><i class="fab fa-instagram"></i></a>
+                        <a href="#" aria-label="لينكد إن"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+
+                <div class="footer-links">
+                    <h3>روابط سريعة</h3>
+                    <ul>
+                        <li><a href="#">الرئيسية</a></li>
+                        <li><a href="#properties">العقارات</a></li>
+                        <li><a href="#hotels">الفنادق</a></li>
+                        <li><a href="#travel">تذاكر السفر</a></li>
+                        <li><a href="#real-estate-services">خدمات عقارية</a></li>
+                        <li><a href="#real-estate-blog">المدونة العقارية</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-links">
+                    <h3>المساعدة</h3>
+                    <ul>
+                        <li><a href="#">الأسئلة الشائعة</a></li>
+                        <li><a href="#">سياسة الخصوصية</a></li>
+                        <li><a href="#">شروط الاستخدام</a></li>
+                        <li><a href="#">اتصل بنا</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-contact">
+                    <h3>اتصل بنا</h3>
+                    <ul>
+                        <li><i class="fas fa-map-marker-alt"></i> الخرطوم، السودان</li>
+                        <li><i class="fas fa-phone"></i> +249 123 456 789</li>
+                        <li><i class="fas fa-envelope"></i> info@aqari.sd</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2023 عقاري. جميع الحقوق محفوظة.</p>
+                <div class="payment-methods">
+                    <i class="fab fa-cc-visa" aria-label="فيزا"></i>
+                    <i class="fab fa-cc-mastercard" aria-label="ماستركارد"></i>
+                    <i class="fab fa-cc-paypal" aria-label="باي بال"></i>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <div class="login-modal" id="login-modal">
+        <div class="modal-content">
+            <button class="close-modal" id="close-modal" aria-label="إغلاق النموذج">
+                <i class="fas fa-times"></i>
+            </button>
+            <h2>تسجيل الدخول</h2>
+            <form id="login-form">
+                <div class="form-group">
+                    <label for="email">البريد الإلكتروني</label>
+                    <input type="email" id="email" required aria-required="true">
+                </div>
+                <div class="form-group">
+                    <label for="password">كلمة المرور</label>
+                    <input type="password" id="password" required aria-required="true">
+                </div>
+                <button type="submit" class="submit-btn">تسجيل الدخول</button>
+                <p class="register-link">ليس لديك حساب؟ <a href="#">سجل الآن</a></p>
+            </form>
+        </div>
+    </div>
+
+    <script src="main.js"></script>
+</body>
+</html>
